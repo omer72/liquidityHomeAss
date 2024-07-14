@@ -115,4 +115,31 @@ export interface IFilm {
       Vehicles = 'vehicles',
   }
 
+  // ./api.js
+export const fetchCharacters = async ({ pageParam = 1 }) => {
+    const response = await fetch(`https://swapi.dev/api/people/?page=${pageParam}`);
+    const data = await response.json();
+    return {
+      results: data.results,
+      nextPage: pageParam + 1,
+      hasNextPage: Boolean(data.next)
+    };
+  };
+  
+  export const updateCharacter = async (character: IPeople) => {
+    // Simulate API update
+    return character;
+  };
+  
+  export const deleteCharacter = async (id: number) => {
+    // Simulate API delete
+    return id;
+  };
+  
+  export const createCharacter = async (character: IPeople) => {
+    // Simulate API create
+    return character;
+  };
+  
+
   

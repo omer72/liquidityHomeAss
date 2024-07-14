@@ -5,6 +5,7 @@ import './App.css';
 import SwaTable from './components/SwaTable';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import CharacterPage from './components/CharacterPage';
+import CharactersList from './components/CharactersList';
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SwaTable />} />
           <Route path="/:type/:id" element={<CharacterPage />} />
+          <Route path="/:type" element={<CharactersList />} />   
         </Routes>
     </Router>
      

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { fetchCharacters, updateCharacter, deleteCharacter, createCharacter } from './api'; // Assume these are defined
+import { useQuery } from '@tanstack/react-query';
+import { fetchCharacters, updateCharacter, deleteCharacter, createCharacter } from '../api/swapi'; // Assume these are defined
 
-import { Dialog, DialogContent } from './ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogTitle } from './ui/dialog';
+import { Input } from './ui/input';
+import { Button } from './ui/button';
 
 const CharactersList = () => {
-  const { data, isLoading, refetch } = useQuery('characters', fetchCharacters);
+  const { data, isLoading, refetch } = useQuery({queryKey:'characters', queryFn:fetchCharacters});
   const [editingCharacter, setEditingCharacter] = useState(null);
   const [isCreating, setIsCreating] = useState(false);
 
@@ -82,14 +84,14 @@ const EditDialog = ({ character, onSave, onClose }) => {
       <Dialog open onClose={onClose}>
         <DialogTitle>Edit Character</DialogTitle>
         <DialogContent>
-          <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
-          <TextField label="Gender" value={gender} onChange={(e) => setGender(e.target.value)} fullWidth />
-          <TextField label="Birth Year" value={birthYear} onChange={(e) => setBirthYear(e.target.value)} fullWidth />
+          <Input title="Name" value={name} onChange={(e) => setName(e.target.value)}  />
+          <Input title="Gender" value={gender} onChange={(e) => setGender(e.target.value)}  />
+          <Input title="Birth Year" value={birthYear} onChange={(e) => setBirthYear(e.target.value)}  />
         </DialogContent>
-        <DialogActions>
+        <DialogFooter>
           <Button onClick={onClose} color="primary">Cancel</Button>
           <Button onClick={handleSubmit} color="primary">Save</Button>
-        </DialogActions>
+        </DialogFooter>
       </Dialog>
     );
   };
@@ -107,14 +109,14 @@ const EditDialog = ({ character, onSave, onClose }) => {
       <Dialog open onClose={onClose}>
         <DialogTitle>Create Character</DialogTitle>
         <DialogContent>
-          <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
-          <TextField label="Gender" value={gender} onChange={(e) => setGender(e.target.value)} fullWidth />
-          <TextField label="Birth Year" value={birthYear} onChange={(e) => setBirthYear(e.target.value)} fullWidth />
+          <Input title="Name" value={name} onChange={(e) => setName(e.target.value)}  />
+          <Input title="Gender" value={gender} onChange={(e) => setGender(e.target.value)}  />
+          <Input title="Birth Year" value={birthYear} onChange={(e) => setBirthYear(e.target.value)}  />
         </DialogContent>
-        <DialogActions>
+        <DialogFooter>
           <Button onClick={onClose} color="primary">Cancel</Button>
           <Button onClick={handleSubmit} color="primary">Save</Button>
-        </DialogActions>
+        </DialogFooter>
       </Dialog>
     );
   };

@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import _ from 'lodash';
 import "./SwaTable.css";
 import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
 
 
 const fetchSearchResults = async (searchTerm:string) => {
@@ -81,12 +82,12 @@ function SwaTable() {
                         <p>{highlightText(result.name || result.title, query)}</p>
                         </Link>
                     ))}
-                    {results[type].length > 3 &&<button
+                    <Button
                         className="view-all-button"
                         onClick={() => window.location.href = `/${type}`}
                     >
                         View All
-                    </button>}
+                    </Button>
                     </div>
                 ))}
                 </div>
