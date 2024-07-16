@@ -67,7 +67,7 @@ function SwaTable() {
     if (isError) return <div>Error: {error.message}</div>;
     
     return (
-      <div className="flex items-center justify-center min-h-screen min-w-full w-96">
+      <div className="flex items-center justify-center min-h-screen min-w-full">
       <div className="w-full min-w-full">
         <div className="relative">
         <Input

@@ -402,7 +402,7 @@ const EditDialog = ({ character, onSave, onClose }:EditDialogProps) => {
         <DialogHeader>
           <DialogTitle>Create Character</DialogTitle>
           <DialogDescription>
-            Make changes to the character. Click save when you're done.
+            Click save when you're done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
@@ -463,7 +463,7 @@ const EditDialog = ({ character, onSave, onClose }:EditDialogProps) => {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={handleSubmit}>Save changes</Button>
+          <Button type="submit" onClick={handleSubmit}>Save</Button>
         </DialogFooter>
       </DialogContent>
       </Dialog>
