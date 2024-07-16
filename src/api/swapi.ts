@@ -18,21 +18,21 @@ export interface IFilm {
   }
   export interface IPeople {
     birth_year: string;
-    eye_color: string;
-    films: string[] | IFilm[];
+    eye_color?: string;
+    films?: string[] | IFilm[];
     gender: string;
-    hair_color: string;
+    hair_color?: string;
     height: string;
-    homeworld: string | IPlanet;
+    homeworld?: string | IPlanet;
     mass: string;
     name: string;
-    skin_color: string;
-    created: Date;
-    edited: Date;
-    species: string[] | ISpecie[];
-    starships: string[] | IStarship[];
-    url: string;
-    vehicles: string[] | IVehicle[];
+    skin_color?: string;
+    created?: Date;
+    edited?: Date;
+    species?: string[] | ISpecie[];
+    starships?: string[] | IStarship[];
+    url?: string;
+    vehicles?: string[] | IVehicle[];
   }
   export interface IPlanet {
     climate: string;
@@ -116,14 +116,15 @@ export interface IFilm {
   }
 
   // ./api.js
-export const fetchCharacters = async ( type:string | undefined ) => {
-  console.log('type ',type);
-    const response = await fetch(`https://swapi.dev/api/${type}`);
+export const fetchCharacters = async ( type:string | undefined , page:number = 1) => {
+
+    const response = await fetch(`https://swapi.dev/api/${type}/?page=${page}`);
     const data = await response.json();
     return {
       results: data.results,
       nextPage: data.next,
-      hasNextPage: Boolean(data.next)
+      hasNextPage: Boolean(data.next),
+      count: data.count
     };
   };
   
