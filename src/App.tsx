@@ -3,9 +3,9 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import './App.css';
-import SwaTable from './pages/SwaTable';
+import SwaTable from './pages/SwaTablePage';
 import CharacterPage from './pages/CharacterPage';
-import CharactersList from './pages/CharactersList';
+import CharactersList from './pages/CharactersListPage';
 
 const queryClient = new QueryClient();
 

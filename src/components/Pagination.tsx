@@ -36,7 +36,7 @@ const Pagination = ({ count, currentPage, setCurrentPage }:Props) => {
 
   return (
     <div className="flex space-x-1 mt-4">
-      <Button variant
+      <Button variant="outline"
         className={`px-3 py-1 border rounded ${currentPage === 1 ? 'text-gray-400' : 'text-blue-600'}`}
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -44,7 +44,7 @@ const Pagination = ({ count, currentPage, setCurrentPage }:Props) => {
         &laquo;
       </Button>
       {getPageNumbers().map((page) => (
-        <Button variant
+        <Button variant="outline"
           key={page}
           className={`px-3 py-1 border rounded ${currentPage === page ? 'bg-blue-600 text-white' : 'text-blue-600'}`}
           onClick={() => handlePageChange(page)}
@@ -52,7 +52,7 @@ const Pagination = ({ count, currentPage, setCurrentPage }:Props) => {
           {page}
         </Button>
       ))}
-      <Button variant
+      <Button variant="outline"
         className={`px-3 py-1 border rounded ${currentPage === totalPages ? 'text-gray-400' : 'text-blue-600'}`}
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}

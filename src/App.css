@@ -90,3 +90,14 @@
     background-color: yellow;
     font-weight: bold;
   }
+
+  .hidden-on-hover {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .row-hover:hover .hidden-on-hover {
+    opacity: 1;
+    pointer-events: auto;
+  }
