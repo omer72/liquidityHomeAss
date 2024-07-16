@@ -85,3 +85,8 @@
   tr:hover .button {
     opacity: 1;
   }
+
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
