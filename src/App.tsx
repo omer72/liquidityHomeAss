@@ -18,8 +18,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<SwaTable />} />
-          <Route path="/:type/:id" element={<CharacterPage />} />
           <Route path="/:type" element={<CharactersList />} />   
+          <Route path="/:type/id/:id" element={<CharacterPage />} />
+          
         </Routes>
     </Router>
      

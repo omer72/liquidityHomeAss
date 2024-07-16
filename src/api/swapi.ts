@@ -116,12 +116,13 @@ export interface IFilm {
   }
 
   // ./api.js
-export const fetchCharacters = async ({ pageParam = 1 }) => {
-    const response = await fetch(`https://swapi.dev/api/people/?page=${pageParam}`);
+export const fetchCharacters = async ( type:string | undefined ) => {
+  console.log('type ',type);
+    const response = await fetch(`https://swapi.dev/api/${type}`);
     const data = await response.json();
     return {
       results: data.results,
-      nextPage: pageParam + 1,
+      nextPage: data.next,
       hasNextPage: Boolean(data.next)
     };
   };
